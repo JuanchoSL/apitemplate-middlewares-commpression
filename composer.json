@@ -8,6 +8,6 @@
         }
     ],
     "require": {
-        "juanchosl/apitemplate-installer-plugin": "*"
+        "juanchosl/apitemplate-installer-plugin": "dev-master"
     }
 }
