@@ -1,6 +1,7 @@
 {
     "name": "juanchosl/apitemplate-middlewares-compression",
     "type": "juanchosl-apitemplate",
+    "minimum-stability": "dev",
     "repositories": [
         {
             "type": "vcs",
