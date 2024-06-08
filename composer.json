@@ -1,0 +1,13 @@
+{
+    "name": "juanchosl/apitemplate-middlewares-compression",
+    "type": "juanchosl-apitemplate",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/juanchosl/apitemplate-installer-plugin"
+        }
+    ],
+    "require": {
+        "juanchosl/apitemplate-installer-plugin": "*"
+    }
+}
