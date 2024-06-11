@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Context\Infrastructure\Middlewares;
+namespace App\Context\Infrastructure\Middlewares\Compression;
 
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -14,7 +14,7 @@ class OutputCompressionMiddleware implements MiddlewareInterface
         $compress = false;
         $encoding = false;
         if ($request->hasHeader('Accept-Encoding')) {
-            $accepts = explode(',', $request->getHeaderLine('Accept-Encoding'));
+            $accepts = $request->getHeader('Accept-Encoding');
             foreach ($accepts as $accept) {
                 $accept = trim($accept);
                 switch ($accept) {
