@@ -14,12 +14,20 @@ class OutputCompressionMiddleware implements MiddlewareInterface
         $compress = false;
         $encoding = false;
         if ($request->hasHeader('Accept-Encoding')) {
-            if (stristr($request->getHeaderLine('Accept-Encoding'), 'deflate') !== false) {
-                $compress = ZLIB_ENCODING_DEFLATE;
-                $encoding = 'deflate';
-            } elseif (stristr($request->getHeaderLine('Accept-Encoding'), 'gzip') !== false) {
-                $compress = ZLIB_ENCODING_GZIP;
-                $encoding = 'gzip';
+            $accepts = explode(',', $request->getHeaderLine('Accept-Encoding'));
+            foreach ($accepts as $accept) {
+                $accept = trim($accept);
+                switch ($accept) {
+                    case 'deflate':
+                        $encoding = 'deflate';
+                        $compress = ZLIB_ENCODING_DEFLATE;
+                        break;
+
+                    case 'gzip':
+                        $encoding = 'gzip';
+                        $compress = ZLIB_ENCODING_GZIP;
+                        break;
+                }
             }
         }
         $response = $handler->handle($request);

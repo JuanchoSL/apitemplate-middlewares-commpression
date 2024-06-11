@@ -1,2 +1,8 @@
 # apitemplate-middlewares-commpression
-apitemplate output compression middleware
+
+Compress the response body
+
+## Accept
+
+- GZIP
+- DEFLATE
